@@ -1,0 +1,35 @@
+fileFormatVersion: 2
+guid: 65275af87945def469d5a3f114a8fe46
+timeCreated: 1439611764
+licenseType: Pro
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - customSkin: {instanceID: 0}
+  - message: {instanceID: 0}
+  - captainBarnaclesBearAudioClip: {fileID: 8300000, guid: c748e3f6023dd47bf9f83932949e5e4d,
+      type: 3}
+  - cheeringAudioClip: {fileID: 8300000, guid: b59235ebc10ab4b6c8e59b7d4ac5bb79, type: 3}
+  - docMcStuffinsAudioClip: {fileID: 8300000, guid: d81f9926af1604b1c97999b948ba0635,
+      type: 3}
+  - donaldDuckAudioClip: {fileID: 8300000, guid: b42bf800a93684118ad22debbf1ad804,
+      type: 3}
+  - jamesSullivanAudioClip: {fileID: 8300000, guid: 457f6ebc8d9754a14a83d3635416fbc2,
+      type: 3}
+  - lambieAudioClip: {fileID: 8300000, guid: c4c4f04b99853498ea078969a509b1ad, type: 3}
+  - marioAudioClip: {fileID: 8300000, guid: e7fae28f864774548b8dfb9fd98421a2, type: 3}
+  - michaelangeloAudioClip: {fileID: 8300000, guid: 40a40af80a165419c9336dd9b5c8a801,
+      type: 3}
+  - mickeyMouseAudioClip: {fileID: 8300000, guid: 7fb7a1661d6b44e949d25463ca33c5e4,
+      type: 3}
+  - mikeWazowskiAudioClip: {fileID: 8300000, guid: 446d4c94fa12c4d4e854f2c409b37cd6,
+      type: 3}
+  - pesoPenguinAudioClip: {fileID: 8300000, guid: d8b9f4185631c42759fdeb1210123cad,
+      type: 3}
+  - shyGuyAudioClip: {fileID: 8300000, guid: 23da6e86db8a841d69ff92a5f23629b3, type: 3}
+  - thwompAudioClip: {fileID: 8300000, guid: f31480a18b4204e7c83b8d55d10efdd2, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
