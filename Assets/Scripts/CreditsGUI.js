@@ -12,12 +12,10 @@ function Start ()
 	halfScreenW = Screen.width / 2;
 	halfButtonW = buttonW / 2;
 
-	credits.text = "Designed by\n";
-	credits.text += "Aunt E\n\n";
-	credits.text += "Developed by\n";
-	credits.text += "Carlos\n\n";
-	credits.text += "Tested by\n";
-	credits.text += "Sadie";
+	credits.text = "Art\n";
+	credits.text += "Niccolo Turillo\n\n";
+	credits.text += "Development\n";
+	credits.text += "Carlos Marchani";
 }
 
 function OnGUI ()

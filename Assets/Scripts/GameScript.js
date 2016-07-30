@@ -36,7 +36,7 @@ var thwompAudioClip : AudioClip;
 //
 function Start ()
 {
-	message.text = "Find the matching pairs of pals!";
+	message.text = "Find the matching pairs!";
 
 	playerCanClick = true;
 	
@@ -84,7 +84,7 @@ function OnGUI ()
 	GUI.backgroundColor = Color.green;
 	if (playerHasWon == true)
 	{
-		message.text = "Way to go, Char!  You found them all.";
+		message.text = "Way to go!  You matched them all.";
 	
 		if (GUI.Button(Rect(halfScreenW - (buttonW / 2) + 320, 1760, buttonW, buttonH), "Play Again"))
 		{

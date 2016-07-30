@@ -1,0 +1,17 @@
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/carlos_marchani/Documents/GitHub/Country-Match/obj/Debug/Assembly-CSharp.dll
+/Users/carlos_marchani/Documents/GitHub/Country-Match/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/UnityEngine.dll
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/UnityEditor.dll
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/Mono.Cecil.dll
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/Unity.DataContract.dll
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/carlos_marchani/Documents/GitHub/Country-Match/Temp/bin/Debug/Mono.Cecil.Mdb.dll
