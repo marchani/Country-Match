@@ -14,13 +14,13 @@ public class GameScript : MonoBehaviour {
 	public static int totalCards = cols * rows;
 	public int matchesNeededToWin = totalCards / 2; // If there are 16 cards, the player needs to find 8 matches to clear the board
 	public int matchesMade = 0; // At the outset, the player has not made any matches
-	public int cardW = Screen.width / rows; // Each card's width and height is 300 pixels
 	public List<Card> aCards; // We'll store all the cards we create in this List
 	public Card[,] aGrid; // This 2d array will keep track of the shuffled, dealt cards
 	public List<Card> aCardsFlipped; // This generic array list will store the two cards that the player flips over
 	public bool playerCanClick; // We'll use this flag to prevent the player from clicking buttons when we don't want him to
 	public bool playerHasWon = false; // Store whether or not the player has won
 
+	public AudioClip[] audioClips;
 	public AudioClip captainBarnaclesBearAudioClip;
 	public AudioClip cheeringAudioClip;
 	public AudioClip docMcStuffinsAudioClip;
@@ -128,9 +128,8 @@ public class GameScript : MonoBehaviour {
 
 				GUI.enabled = !card.isMatched;
 
-				cardW = (int)Mathf.Min((Screen.width * 0.9f) / rows, 300.0f);
-				int cardH = (int)Mathf.Min((Screen.width * 0.9f) / rows, 300.0f);
-				if (GUILayout.Button((Texture)Resources.Load(img), GUILayout.MaxWidth(cardW), GUILayout.MaxHeight(cardH)))
+				int cardDimensions = (int)Mathf.Min((Screen.width * 0.9f) / rows, 300.0f);
+				if (GUILayout.Button((Texture)Resources.Load(img), GUILayout.MaxWidth(cardDimensions), GUILayout.MaxHeight(cardDimensions)))
 				{
 					if (playerCanClick)
 					{
@@ -152,29 +151,34 @@ public class GameScript : MonoBehaviour {
 	//
 	void BuildDeck()
 	{
-		int totalRobots = 4; // we've got four robots to work with
 		int id = 0;
 
-		for (int i = 0; i < totalRobots; i++)
+		List<string> aRobotParts = new List<string>();
+
+		aRobotParts.Add("1");
+		aRobotParts.Add("2");
+		aRobotParts.Add("3");
+		aRobotParts.Add("4");
+		aRobotParts.Add("5");
+		aRobotParts.Add("6");
+		aRobotParts.Add("7");
+		aRobotParts.Add("8");
+		aRobotParts.Add("9");
+		aRobotParts.Add("10");
+		aRobotParts.Add("11");
+		aRobotParts.Add("12");
+
+		for (int i = 0; i < ((cols * rows) / 2); i++)
 		{
-			List<string> aRobotParts = new List<string>();
+			int someNum = Random.Range(0, aRobotParts.Count);
+			string theMissingPart = aRobotParts[someNum];
 
-			aRobotParts.Add("Head");
-			aRobotParts.Add("Arm");
-			aRobotParts.Add("Leg");
+			aRobotParts.RemoveAt(someNum);
 
-			for (int j = 0; j < 2; j++)
-			{
-				int someNum = Random.Range(0, aRobotParts.Count);
-				string theMissingPart = aRobotParts[someNum];
+			aCards.Add(new Card("match" + theMissingPart + "a", id));		
+			aCards.Add(new Card("match" + theMissingPart + "b", id));
 
-				aRobotParts.RemoveAt(someNum);
-
-				aCards.Add(new Card("robot" + (i+1) + "Missing" + theMissingPart, id));		
-				aCards.Add(new Card("robot" + (i+1) + theMissingPart, id));
-
-				id++;
-			}
+			id++;
 		}
 	}
 
@@ -212,66 +216,8 @@ public class GameScript : MonoBehaviour {
 					}
 					else // matchesMade < matchesNeededToWin
 					{
-						if (((aCardsFlipped[0].img) == "robot1MissingArm") ||
-							((aCardsFlipped[0].img) == "robot1Arm"))
-						{
-							GetComponent<AudioSource>().PlayOneShot(mickeyMouseAudioClip);
-						}
-						else if (((aCardsFlipped[0].img) == "robot1MissingHead") ||
-							((aCardsFlipped[0].img) == "robot1Head"))
-						{
-							GetComponent<AudioSource>().PlayOneShot(pesoPenguinAudioClip);
-						}
-						else if (((aCardsFlipped[0].img) == "robot1MissingLeg") ||
-							((aCardsFlipped[0].img) == "robot1Leg"))
-						{
-							GetComponent<AudioSource>().PlayOneShot(mikeWazowskiAudioClip);
-						}
-						else if (((aCardsFlipped[0].img) == "robot2MissingArm") ||
-							((aCardsFlipped[0].img) == "robot2Arm"))
-						{
-							GetComponent<AudioSource>().PlayOneShot(lambieAudioClip);
-						}
-						else if (((aCardsFlipped[0].img) == "robot2MissingHead") ||
-							((aCardsFlipped[0].img) == "robot2Head"))
-						{
-							GetComponent<AudioSource>().PlayOneShot(michaelangeloAudioClip);
-						}
-						else if (((aCardsFlipped[0].img) == "robot2MissingLeg") ||
-							((aCardsFlipped[0].img) == "robot2Leg"))
-						{
-							GetComponent<AudioSource>().PlayOneShot(docMcStuffinsAudioClip);
-						}
-						else if (((aCardsFlipped[0].img) == "robot3MissingArm") ||
-							((aCardsFlipped[0].img) == "robot3Arm"))
-						{
-							GetComponent<AudioSource>().PlayOneShot(thwompAudioClip);
-						}
-						else if (((aCardsFlipped[0].img) == "robot3MissingHead") ||
-							((aCardsFlipped[0].img) == "robot3Head"))
-						{
-							GetComponent<AudioSource>().PlayOneShot(shyGuyAudioClip);
-						}
-						else if (((aCardsFlipped[0].img) == "robot3MissingLeg") ||
-							((aCardsFlipped[0].img) == "robot3Leg"))
-						{
-							GetComponent<AudioSource>().PlayOneShot(marioAudioClip);
-						}
-						else if (((aCardsFlipped[0].img) == "robot4MissingArm") ||
-							((aCardsFlipped[0].img) == "robot4Arm"))
-						{
-							GetComponent<AudioSource>().PlayOneShot(donaldDuckAudioClip);
-						}
-						else if (((aCardsFlipped[0].img) == "robot4MissingHead") ||
-							((aCardsFlipped[0].img) == "robot4Head"))
-						{
-							GetComponent<AudioSource>().PlayOneShot(captainBarnaclesBearAudioClip);
-						}
-						else if (((aCardsFlipped[0].img) == "robot4MissingLeg") ||
-							((aCardsFlipped[0].img) == "robot4Leg"))
-						{
-							GetComponent<AudioSource>().PlayOneShot(jamesSullivanAudioClip);
-						}
+						AudioClip randomAudioClip = audioClips[Random.Range(0, audioClips.Length)];						
+						GetComponent<AudioSource>().PlayOneShot(randomAudioClip);
 					}
 				}
 				else
