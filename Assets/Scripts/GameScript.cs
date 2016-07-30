@@ -3,16 +3,15 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class GameScript : MonoBehaviour {
-
+public class GameScript : MonoBehaviour
+{
 	public Button playAgainButton;
 
 	public GUISkin customSkin;
 	public Text message;
 	public static int cols = 4; // the number of columns in the card grid
 	public static int rows = 4; // the number of rows in the card grid
-	public static int totalCards = cols * rows;
-	public int matchesNeededToWin = totalCards / 2; // If there are 16 cards, the player needs to find 8 matches to clear the board
+	public int matchesNeededToWin = (cols * rows) / 2; // If there are 16 cards, the player needs to find 8 matches to clear the board
 	public int matchesMade = 0; // At the outset, the player has not made any matches
 	public List<Card> aCards; // We'll store all the cards we create in this List
 	public Card[,] aGrid; // This 2d array will keep track of the shuffled, dealt cards
@@ -21,19 +20,7 @@ public class GameScript : MonoBehaviour {
 	public bool playerHasWon = false; // Store whether or not the player has won
 
 	public AudioClip[] audioClips;
-	public AudioClip captainBarnaclesBearAudioClip;
 	public AudioClip cheeringAudioClip;
-	public AudioClip docMcStuffinsAudioClip;
-	public AudioClip donaldDuckAudioClip;
-	public AudioClip jamesSullivanAudioClip;
-	public AudioClip lambieAudioClip;
-	public AudioClip marioAudioClip;
-	public AudioClip michaelangeloAudioClip;
-	public AudioClip mickeyMouseAudioClip;
-	public AudioClip mikeWazowskiAudioClip;
-	public AudioClip pesoPenguinAudioClip;
-	public AudioClip shyGuyAudioClip;
-	public AudioClip thwompAudioClip;
 
 
 	//
@@ -155,20 +142,12 @@ public class GameScript : MonoBehaviour {
 
 		List<string> aRobotParts = new List<string>();
 
-		aRobotParts.Add("1");
-		aRobotParts.Add("2");
-		aRobotParts.Add("3");
-		aRobotParts.Add("4");
-		aRobotParts.Add("5");
-		aRobotParts.Add("6");
-		aRobotParts.Add("7");
-		aRobotParts.Add("8");
-		aRobotParts.Add("9");
-		aRobotParts.Add("10");
-		aRobotParts.Add("11");
-		aRobotParts.Add("12");
+		for (int i = 0; i < 12; i++)
+		{
+			aRobotParts.Add(i.ToString());
+		}
 
-		for (int i = 0; i < ((cols * rows) / 2); i++)
+		for (int i = 0; i < (matchesNeededToWin); i++)
 		{
 			int someNum = Random.Range(0, aRobotParts.Count);
 			string theMissingPart = aRobotParts[someNum];
