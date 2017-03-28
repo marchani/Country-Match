@@ -1,7 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{76AFFB69-E52B-66BA-AB9D-1E51F471C970}") = "Country-Match", "Assembly-CSharp.csproj", "{71A73EFD-11DC-0B72-2A13-51529FFCCEDD}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Country-Match", "Assembly-CSharp.csproj", "{71A73EFD-11DC-0B72-2A13-51529FFCCEDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
