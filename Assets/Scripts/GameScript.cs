@@ -74,6 +74,7 @@ public class GameScript : MonoBehaviour
 		if (playerHasWon == true)
 		{
 			message.text = "Way to go!  You matched them all.";
+            timer.PauseClock();
 			playAgainButton.gameObject.SetActive(true);
 		}
         else // playerHasWon == false
