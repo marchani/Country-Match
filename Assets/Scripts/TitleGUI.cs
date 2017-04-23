@@ -16,10 +16,18 @@ public class TitleGUI : MonoBehaviour
 	}
 
 
-	//
-	// OnClickViewCredits()
-	//
-	public void OnClickViewCredits()
+    //
+    // OnClickSettings()
+    //
+    public void OnClickSettings()
+    {
+        SceneManager.LoadScene("settings");
+    }
+
+    //
+    // OnClickViewCredits()
+    //
+    public void OnClickViewCredits()
 	{
 		SceneManager.LoadScene ("credits");
 	}

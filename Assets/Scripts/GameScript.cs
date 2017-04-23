@@ -6,8 +6,9 @@ using System.Collections.Generic;
 public class GameScript : MonoBehaviour
 {
 	public Button playAgainButton;
+    public CountdownTimer timer;
 
-	public GUISkin customSkin;
+    public GUISkin customSkin;
 	public Text message;
 	public static int cols = 4; // the number of columns in the card grid
 	public static int rows = 4; // the number of rows in the card grid
@@ -28,7 +29,7 @@ public class GameScript : MonoBehaviour
 	//
 	void Awake ()
 	{
-		playAgainButton.gameObject.SetActive(false);
+        playAgainButton.gameObject.SetActive(false);
 	}
 
 	//
@@ -66,23 +67,35 @@ public class GameScript : MonoBehaviour
 	//
 	void OnGUI ()
 	{
-		GUILayout.BeginArea (new Rect (0, 0, Screen.width, Screen.height));
-		BuildGrid ();
-		GUILayout.EndArea ();
+		GUILayout.BeginArea(new Rect (0, 0, Screen.width, Screen.height));
+		BuildGrid();
+		GUILayout.EndArea();
 
 		if (playerHasWon == true)
 		{
 			message.text = "Way to go!  You matched them all.";
-
 			playAgainButton.gameObject.SetActive(true);
 		}
+        else // playerHasWon == false
+        {
+            if (timer.timeRemaining == false)
+            {
+                message.text = "Nice try!  You'll get it next time.";
+                playerCanClick = false;
+                playAgainButton.gameObject.SetActive(true);
+            }
+            else // timer.timeRemaining == true
+            {
+                // Do nothing.
+            }
+        }
 	}
 
 
-	//
-	// BuildGrid()
-	//
-	void BuildGrid ()
+    //
+    // BuildGrid()
+    //
+    void BuildGrid ()
 	{
 		GUILayout.BeginVertical();
 		GUILayout.FlexibleSpace();
@@ -179,35 +192,42 @@ public class GameScript : MonoBehaviour
 
 				yield return new WaitForSeconds(1);
 
-				if (aCardsFlipped[0].id == aCardsFlipped[1].id)
-				{
-					// Match!
+                if (timer.timeRemaining == true)
+                {
 
-					aCardsFlipped[0].isMatched = true;
-					aCardsFlipped[1].isMatched = true;
+                    if (aCardsFlipped[0].id == aCardsFlipped[1].id)
+                    {
+                        // Match!
+                        aCardsFlipped[0].isMatched = true;
+                        aCardsFlipped[1].isMatched = true;
 
-					matchesMade++;
+                        matchesMade++;
 
-					if (matchesMade >= matchesNeededToWin)
-					{
-						playerHasWon = true;
-						GetComponent<AudioSource>().PlayOneShot(cheeringAudioClip);
-					}
-					else // matchesMade < matchesNeededToWin
-					{
-						AudioClip randomAudioClip = audioClips[Random.Range(0, audioClips.Length)];						
-						GetComponent<AudioSource>().PlayOneShot(randomAudioClip);
-					}
-				}
-				else
-				{
-					aCardsFlipped[0].isFaceUp = false;
-					aCardsFlipped[1].isFaceUp = false;
-				}			
+                        if (matchesMade >= matchesNeededToWin)
+                        {
+                            playerHasWon = true;
+                            GetComponent<AudioSource>().PlayOneShot(cheeringAudioClip);
+                        }
+                        else // matchesMade < matchesNeededToWin
+                        {
+                            AudioClip randomAudioClip = audioClips[Random.Range(0, audioClips.Length)];
+                            GetComponent<AudioSource>().PlayOneShot(randomAudioClip);
+                        }
+                    }
+                    else
+                    {
+                        aCardsFlipped[0].isFaceUp = false;
+                        aCardsFlipped[1].isFaceUp = false;
+                    }
 
-				aCardsFlipped = new List<Card>();
+                    aCardsFlipped = new List<Card>();
 
-				playerCanClick = true;
+                    playerCanClick = true;
+                }
+                else // timer.timeRemaining == false
+                {
+                    // Do nothing.
+                }
 			}
 		}
 	}
