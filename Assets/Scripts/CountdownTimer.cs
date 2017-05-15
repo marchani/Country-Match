@@ -16,7 +16,8 @@ public class CountdownTimer : MonoBehaviour
     //
     private void Awake()
     {
-        startTimeInSeconds = Time.time + 120.0f;
+        // Set countdown timer to 1 minute.
+        startTimeInSeconds = Time.time + 60.0f;
     }
 
 
