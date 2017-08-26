@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
     //
     public bool LastLevel
     {
-        get { return (currentLevel == 2); }
+        get { return (currentLevel == 4); }
     }
 
 
